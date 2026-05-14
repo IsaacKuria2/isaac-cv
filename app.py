@@ -3,7 +3,7 @@ import streamlit as st
 # --- PAGE CONFIG ---
 st.set_page_config(
     page_title="Isaac Kuria | CV",
-    page_icon="💼",
+    page_icon="logo2.png",
     layout="wide"
 )
 
@@ -137,7 +137,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("MSc Data Science")
-    st.caption("📍 [Robert Gordon University] (https://www.rgu.ac.uk/) |  📅 2025 – Present")
+    st.caption("📍 [Robert Gordon University](https://www.rgu.ac.uk/) |  📅 2025 – Present")
     st.write("Currently at dissertation stage, focusing on machine learning and computer vision.")
 
     st.write("")
@@ -167,6 +167,66 @@ with col2:
     st.subheader("Community Engagement Support Assistant")
     st.caption("📍 Re-engage Volunteering  |  📅 Sep 2025 – Present")
     st.write("Monitored participation data and feedback to support service improvement initiatives.")
+
+st.divider()
+#####
+# --- CHATBOT ---
+st.header("🤖 Ask About My CV")
+st.write("Ask me anything about my experience, skills, or background!")
+
+def cv_chatbot(question):
+    q = question.lower()
+
+    if any(w in q for w in ["skill", "know", "technology", "tech", "tools"]):
+        return "Isaac is skilled in Python, SQL, ETL, data pipelines, MySQL, Hadoop, Spark, machine learning, and computer vision. He also has 9+ years of IT support and networking experience."
+
+    elif any(w in q for w in ["experience", "work", "job", "career"]):
+        return "Isaac has 9+ years of experience. He worked as a Technical Support Specialist at Kenya Civil Aviation Authority (2015–2024), IT Support Assistant at East African School of Aviation (2025), and as a Freelance IT Consultant (2017–2024)."
+
+    elif any(w in q for w in ["education", "degree", "study", "university", "qualification","background"]):
+        return "Isaac holds a BSc (Hons) Computer Science with First Class Honours from St Paul's University, Kenya. He is currently completing an MSc Data Science dissertation at Robert Gordon University, Aberdeen."
+
+    elif any(w in q for w in ["aviation", "kcaa", "airline"]):
+        return "Isaac spent nearly a decade supporting IT systems at the Kenya Civil Aviation Authority — a safety-critical, regulated environment. This gives him unique insight into aviation technology operations."
+
+    elif any(w in q for w in ["data science", "machine learning", "ml", "ai", "computer vision"]):
+        return "Isaac is currently pursuing an MSc in Data Science at Robert Gordon University, with a focus on machine learning and computer vision techniques for real-world problem solving."
+
+    elif any(w in q for w in ["contact", "email", "phone", "reach", "hire"]):
+        return "You can reach Isaac at i.kuria@hotmail.com or +44 7349 688 208. Connect on LinkedIn at linkedin.com/in/kuriaspace/"
+
+    elif any(w in q for w in ["location", "based", "where", "country", "live"]):
+        return "Isaac is currently based in Aberdeen, Scotland, UK, and is open to relocation for the right opportunity."
+
+    elif any(w in q for w in ["volunteer", "community"]):
+        return "Isaac volunteers as a Sustainability Retail Assistant at GoGreen KEIM Shop (RGU) and as a Community Engagement Support Assistant at Re-engage Volunteering, both since September 2025."
+
+    elif any(w in q for w in ["python", "sql", "hadoop", "spark", "mysql"]):
+        return "Yes! Isaac works with Python and SQL for data analysis and ETL, MySQL for relational databases, and Hadoop and Spark for big data processing."
+
+    elif any(w in q for w in ["strength", "best", "good at", "speciality", "specialist"]):
+        return "Isaac's key strengths are bridging IT support with data science, working in regulated environments, and turning data into actionable insights. His aviation background is a rare differentiator."
+
+    else:
+        return "Great question! For more details you can reach Isaac directly at i.kuria@hotmail.com or connect on LinkedIn at linkedin.com/in/kuriaspace/"
+
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+
+user_input = st.chat_input("Ask me something... e.g. 'What are your skills?'")
+
+if user_input:
+    response = cv_chatbot(user_input)
+    st.session_state.chat_history.append(("you", user_input))
+    st.session_state.chat_history.append(("isaac", response))
+
+for sender, message in st.session_state.chat_history:
+    if sender == "you":
+        with st.chat_message("user"):
+            st.write(message)
+    else:
+        with st.chat_message("assistant"):
+            st.write(message)
 
 st.divider()
 
