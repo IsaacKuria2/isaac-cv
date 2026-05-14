@@ -137,7 +137,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("MSc Data Science")
-    st.caption("📍 Robert Gordon University  |  📅 2025 – Present")
+    st.caption("📍 [Robert Gordon University] (https://www.rgu.ac.uk/) |  📅 2025 – Present")
     st.write("Currently at dissertation stage, focusing on machine learning and computer vision.")
 
     st.write("")
