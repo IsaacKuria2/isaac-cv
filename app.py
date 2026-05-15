@@ -232,7 +232,6 @@ st.markdown("""
   <div class="hero-contacts">
     <a class="hero-contact-pill" href="mailto:i.kuria@hotmail.com">✉ i.kuria@hotmail.com</a>
     <a class="hero-contact-pill" href="https://www.linkedin.com/in/kuriaspace/" target="_blank">🔗 linkedin.com/in/kuriaspace</a>
-    <span class="hero-contact-pill">📍 Aberdeen, Scotland, UK</span>
   </div>
 </div>
 """, unsafe_allow_html=True)
