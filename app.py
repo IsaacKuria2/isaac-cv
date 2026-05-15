@@ -231,7 +231,6 @@ st.markdown("""
   <div class="hero-title">Data Analyst &nbsp;·&nbsp; ICT Support Specialist &nbsp;·&nbsp; MSc Data Science Candidate</div>
   <div class="hero-contacts">
     <a class="hero-contact-pill" href="mailto:i.kuria@hotmail.com">✉ i.kuria@hotmail.com</a>
-    <a class="hero-contact-pill" href="tel:+447349688208">📱 +44 7349 688 208</a>
     <a class="hero-contact-pill" href="https://www.linkedin.com/in/kuriaspace/" target="_blank">🔗 linkedin.com/in/kuriaspace</a>
     <span class="hero-contact-pill">📍 Aberdeen, Scotland, UK</span>
   </div>
