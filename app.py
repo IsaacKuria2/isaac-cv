@@ -3,7 +3,7 @@ import streamlit as st
 # --- PAGE CONFIG ---
 st.set_page_config(
     page_title="Isaac Kuria | CV",
-    page_icon="✈",
+    page_icon="logo2.png",
     layout="wide"
 )
 
@@ -15,7 +15,7 @@ st.markdown("""
   /* ── Global Reset ─────────────────────────────────────── */
   html, body, [class*="css"] {
     font-family: 'DM Sans', sans-serif;
-    color: #1a1a2e;
+    color: #eaeaea;
   }
 
   /* ── Page Background ──────────────────────────────────── */
@@ -278,13 +278,13 @@ col1, col2 = st.columns([3, 2], gap="large")
 
 with col1:
     skills = {
-        "IT Support / Networking": 90,
+        "IT Support": 90,
         "Python": 85,
         "SQL": 80,
         "Data Pipelines / ETL": 75,
-        "MySQL / Relational DBs": 75,
+        "MySQL / databases": 75,
         "Machine Learning": 70,
-        "Big Data (Hadoop/Spark)": 65,
+        "Big Data Analytics": 65,
         "Computer Vision": 60,
     }
 
@@ -421,7 +421,7 @@ with edu_col2:
     st.markdown("""
     <div class="card" style="border-left-color:#059669; height:100%;">
       <div class="card-title">BSc (Hons) Computer Science</div>
-      <div class="card-meta">📍 St Paul's University, Kenya &nbsp;|&nbsp; 📅 2019 – 2022</div>
+      <div class="card-meta">📍 <a href="https://www.spu.ac.ke/" target="_blank">St Paul's University, Kenya </a>&nbsp;|&nbsp; 📅 2019 – 2022</div>
       <p style="font-size:0.9rem;color:#374151;margin:0;">
         <strong style="color:#059669;">First Class Honours</strong> — top distinction awarded for academic excellence.
       </p>
@@ -466,68 +466,10 @@ with vol_col2:
       <div class="card-title">Community Engagement Support Assistant</div>
       <div class="card-meta">📍 Re-engage Volunteering &nbsp;|&nbsp; 📅 Sep 2025 – Present</div>
       <p style="font-size:0.9rem;color:#374151;margin:0;">
-        Monitored participation data and feedback to support service improvement initiatives.
+        Monitor participation data and feedback to support service improvement initiatives.
       </p>
     </div>
     """, unsafe_allow_html=True)
-
-st.write("")
-
-# ══════════════════════════════════════════════════════════
-# CHATBOT
-# ══════════════════════════════════════════════════════════
-st.markdown('<div class="section-header">🤖 Ask About My CV</div>', unsafe_allow_html=True)
-st.write("")
-
-st.markdown("""
-<div class="chat-intro">
-  <strong>Hi there! 👋</strong> I'm Isaac's CV assistant. Ask me about his skills, experience,
-  education, or how to get in touch — I'll answer instantly.
-</div>
-""", unsafe_allow_html=True)
-
-def cv_chatbot(question):
-    q = question.lower()
-    if any(w in q for w in ["skill", "know", "technology", "tech", "tools"]):
-        return "Isaac is skilled in Python, SQL, ETL, data pipelines, MySQL, Hadoop, Spark, machine learning, and computer vision. He also has 9+ years of IT support and networking experience."
-    elif any(w in q for w in ["experience", "work", "job", "career"]):
-        return "Isaac has 9+ years of experience. He worked as a Technical Support Specialist at Kenya Civil Aviation Authority (2015–2024), IT Support Assistant at East African School of Aviation (2025), and as a Freelance IT Consultant (2017–2024)."
-    elif any(w in q for w in ["education", "degree", "study", "university", "qualification", "background"]):
-        return "Isaac holds a BSc (Hons) Computer Science with First Class Honours from St Paul's University, Kenya. He is currently completing an MSc Data Science dissertation at Robert Gordon University, Aberdeen."
-    elif any(w in q for w in ["aviation", "kcaa", "airline"]):
-        return "Isaac spent nearly a decade supporting IT systems at the Kenya Civil Aviation Authority — a safety-critical, regulated environment. This gives him unique insight into aviation technology operations."
-    elif any(w in q for w in ["data science", "machine learning", "ml", "ai", "computer vision"]):
-        return "Isaac is currently pursuing an MSc in Data Science at Robert Gordon University, with a focus on machine learning and computer vision for road damage detection using YOLOv8 and the RDD2022 dataset."
-    elif any(w in q for w in ["contact", "email", "phone", "reach", "hire"]):
-        return "You can reach Isaac at i.kuria@hotmail.com or +44 7349 688 208. Connect on LinkedIn at linkedin.com/in/kuriaspace/"
-    elif any(w in q for w in ["location", "based", "where", "country", "live"]):
-        return "Isaac is currently based in Aberdeen, Scotland, UK, and is open to relocation for the right opportunity."
-    elif any(w in q for w in ["volunteer", "community"]):
-        return "Isaac volunteers as a Sustainability Retail Assistant at GoGreen KEIM Shop (RGU) and as a Community Engagement Support Assistant at Re-engage Volunteering, both since September 2025."
-    elif any(w in q for w in ["python", "sql", "hadoop", "spark", "mysql"]):
-        return "Yes! Isaac works with Python and SQL for data analysis and ETL, MySQL for relational databases, and Hadoop and Spark for big data processing."
-    elif any(w in q for w in ["strength", "best", "good at", "speciality", "specialist"]):
-        return "Isaac's key strengths are bridging IT support with data science, working in regulated environments, and turning data into actionable insights. His aviation background is a rare differentiator."
-    else:
-        return "Great question! For more details you can reach Isaac directly at i.kuria@hotmail.com or connect on LinkedIn at linkedin.com/in/kuriaspace/"
-
-if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
-
-user_input = st.chat_input("Ask something… e.g. 'What are your skills?' or 'How do I contact Isaac?'")
-
-if user_input:
-    response = cv_chatbot(user_input)
-    st.session_state.chat_history.append(("you", user_input))
-    st.session_state.chat_history.append(("isaac", response))
-
-for sender, message in st.session_state.chat_history:
-    if sender == "you":
-        with st.chat_message("user"):
-            st.write(message)
-    else:
-        with st.chat_message("assistant"):
-            st.write(message)
 
 st.write("")
 # ══════════════════════════════════════════════════════════
@@ -536,7 +478,7 @@ st.write("")
 st.write("")
 st.markdown("""
 <div class="footer">
-  Built with Python &amp; Streamlit &nbsp;·&nbsp; Isaac Kuria © 2026 &nbsp;·&nbsp;
+  &nbsp;&nbsp; Isaac Kuria © 2026 &nbsp;·&nbsp;
   <a href="https://www.linkedin.com/in/kuriaspace/" style="color:#2563eb; text-decoration:none;">LinkedIn</a>
 </div>
 """, unsafe_allow_html=True)
